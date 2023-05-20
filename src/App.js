@@ -1,16 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState } from 'react';
-import { MemoBtn } from './components/button';
+import { useEffect, useState } from 'react';
 
 function App() {
-	const [value, setValue] = useState('prev text');
-	const handleClick = () => setValue('current Text!');
+	const [value, setValue] = useState(0);
+	const handleClick = () => setValue((prev) => prev + 1);
 
+	useEffect(() => {
+		console.log(value);
+	}, [value]);
 	return (
 		<div className='App'>
-			<MemoBtn text={value} onClick={handleClick} />
-			<MemoBtn text='another text' />
+			<h1>{value}</h1>
+			<button onClick={handleClick}>Click me!</button>
 		</div>
 	);
 }
