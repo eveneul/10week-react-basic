@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import PropTypes from 'prop-types';
-import styles from '../css/button.modules.css';
+import styles from '../css/Button.modules.css';
 
 export function Btn(props) {
 	const { text, onClick } = props;
