@@ -6,4 +6,4 @@ export function Btn(props) {
 	return <button onClick={onClick}>{text}</button>;
 }
 
-export const memoBtn = memo(Btn);
+export const MemoBtn = memo(Btn);
