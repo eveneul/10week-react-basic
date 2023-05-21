@@ -1,19 +1,12 @@
 import React from 'react';
 
 function Movie(props) {
-	const { movie } = props;
-	console.log(movie, 'movie');
+	const { img, title } = props;
 	return (
-		<div className='container'>
-			{movie.map((item, index) => (
-				<a href='#' key={index}>
-					<img src={item.large_cover_image} alt={item.title} />
-					<br />
-					<strong>{item.title_long}</strong>
-					<p></p>
-				</a>
-			))}
-		</div>
+		<a href='#'>
+			<img src={img} alt={title} />
+			<span>{title}</span>
+		</a>
 	);
 }
 

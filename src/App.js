@@ -20,7 +20,9 @@ function App() {
 				<span>loading...</span>
 			) : (
 				<div className='container'>
-					<Movie movie={movie} />
+					{movie.map((item, index) => (
+						<Movie key={index} img={item.large_cover_image} title={item.title_long} />
+					))}
 				</div>
 			)}
 		</div>
