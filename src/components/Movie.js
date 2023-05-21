@@ -1,12 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Movie(props) {
-	const { img, title } = props;
+	const { img, title, id } = props;
 	return (
-		<a href='#'>
+		<Link to={`/movie/${id}`}>
 			<img src={img} alt={title} />
 			<span>{title}</span>
-		</a>
+			<span>{id}</span>
+		</Link>
 	);
 }
 

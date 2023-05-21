@@ -21,7 +21,7 @@ function Home() {
 			) : (
 				<div className='container'>
 					{movie.map((item, index) => (
-						<Movie key={index} img={item.large_cover_image} title={item.title_long} />
+						<Movie key={index} img={item.large_cover_image} title={item.title_long} id={item.id} />
 					))}
 				</div>
 			)}
