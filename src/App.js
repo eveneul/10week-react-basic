@@ -1,38 +1,39 @@
-import { useEffect, useState } from 'react';
-
-function Hello() {
-	useEffect(() => {
-		console.log('create!');
-
-		return () => console.log('destroyed');
-	}, []);
-
-	return <span>hello!</span>;
-}
+import { useEffect, useState } from "react";
 
 function App() {
-	const [show, setShow] = useState(false);
-	const handleClick = () => setShow((prev) => !prev);
+  const [todo, setTodo] = useState("");
+  const [list, setList] = useState([]);
 
-	/*
-		useEffect란?
-		useEffect(func, arr)
+  const handleChange = (e) => setTodo(e.target.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (todo === "") {
+      return;
+    }
+    setList((current) => [todo, ...current]);
+    setTodo("");
+  };
 
-		첫 번째 인자로 들어가는 function은 페이지가 로드되고 (스크립트가 다 불러오고) 
-		딱 한 번만 실행될 함수를 적는다
-	
-		두 번째로 인자로 들어가는 array는 들어간 값이 바뀔 때 useEffect가 다시 실행된다
-
-		useEffect의 cleanUp
-
-	*/
-	return (
-		<div className='App'>
-			{show ? <Hello /> : null}
-			<br />
-			<button onClick={handleClick}>{show ? 'hide' : 'show'}</button>
-		</div>
-	);
+  console.log(list);
+  return (
+    <div className="App">
+      <form onSubmit={handleSubmit}>
+        <input
+          value={todo}
+          onChange={handleChange}
+          type="text"
+          placeholder="write your to do "
+        />
+        <button>Add To do</button>
+      </form>
+      {list.map((item, index) => (
+        <>
+          <span key={item}>{item}</span>
+          <br />
+        </>
+      ))}
+    </div>
+  );
 }
 
 export default App;
