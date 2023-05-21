@@ -28,7 +28,7 @@ function Home() {
 					<div className='characters-wrap'>
 						<ul className='characters-list'>
 							{character.map((item, index) => (
-								<List key={index} img={item.thumbnail.path} exte={item.thumbnail.extension} name={item.name} />
+								<List key={index} img={item.thumbnail.path} exte={item.thumbnail.extension} name={item.name} id={item.id} />
 							))}
 						</ul>
 					</div>
