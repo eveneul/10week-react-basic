@@ -14,7 +14,7 @@ function App() {
     setTodo("");
   };
 
-  console.log(list);
+  console.log(todo);
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
@@ -27,10 +27,7 @@ function App() {
         <button>Add To do</button>
       </form>
       {list.map((item, index) => (
-        <>
-          <span key={item}>{item}</span>
-          <br />
-        </>
+        <div key={index}>{item}</div>
       ))}
     </div>
   );
